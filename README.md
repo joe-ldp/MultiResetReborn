@@ -1,11 +1,11 @@
-# Rawalle (Fork of [Specnr's MultiResetWall](https://github.com/Specnr/MultiResetWall))
+# MultiResetReborn (Rework of [Specnr's MultiResetRSG](https://gist.github.com/Specnr/c851a92a258dd1fdbe3eee588f3f14d8))
 Support Specnr (original macro author)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/specnr)
 
 ## Setup Video
 
-Watch the [NEW Multi Instance & Wall Setup Video](https://youtu.be/0xAHMW93MQw)
+Watch the [NEW Multi Instance Setup Video](https://youtu.be/0xAHMW93MQw)
 
 ## Better Settings & Hotkeys
 
@@ -13,11 +13,13 @@ The settings and hotkey binds are easily accessible in their own files, in the b
 
 Edit the values in these files to change your settings and binds.
 
-You can add new binds (e.g. if you have more than 9 instances) if you just follow the patterns of existing ones.
+You can add new binds (e.g. if you have more than 4 instances) if you just follow the patterns of existing ones.
 
 ## Basic Usage
 
+Start up the macro by running MultiResetReborn.ahk.
 
+Wait for it to say ready, then click the AutoReset gold boots on your first instance. Reset using U or your set hotkey, repeat until all of your instances are resetting.
 
 ## Background Resetting
 
@@ -56,9 +58,6 @@ After that it should be working. Ping @Tech Support in the [Discord](https://dis
 ## Credit
 
 - Specnr for originally authoring this macro
-- Me (Ravalle/Joe) for this fork
-- The collaborators listed on GitHub for minor enhancements
-- PodX12 for some minor enchancements
-- Sam Dao (real)
-- jojoe77777 for making the original wall macro
-- Everyone I can't list who has contributed ideas
+- Me (Ravalle/Joe) for this rework
+- Algorythm for always backseating my code
+- jojoe77777 for making the original multi instance macro
