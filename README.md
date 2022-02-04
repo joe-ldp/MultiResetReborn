@@ -7,6 +7,8 @@ Support Specnr (original macro author)
 
 Watch the [NEW Multi Instance Setup Video](https://youtu.be/0xAHMW93MQw)
 
+The setup for this macro is almost identical to Specnr's, as it uses a lot of his code. Any differences are mentioned in the details below!
+
 ## Better Settings & Hotkeys
 
 The settings and hotkey binds are easily accessible in their own files, in the base folder of the macro download.
