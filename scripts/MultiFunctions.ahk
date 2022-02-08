@@ -1,7 +1,6 @@
 ; v0.1.0
 
 EnvGet, threadCount, NUMBER_OF_PROCESSORS
-;global threadCount
 global instWidth := Floor(A_ScreenWidth / cols)
 global instHeight := Floor(A_ScreenHeight / rows)
 global McDirectories := []
@@ -167,6 +166,7 @@ ExitWorld()
         } else {
             ResetSettings(pid, renderDistance)
         }
+        ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %1%
         ResetInstance(idx)
         if (affinity) {
             for i, tmppid in PIDs {
@@ -234,11 +234,6 @@ SwitchInstance(idx) {
             ControlSend, ahk_parent, {Blind}{F3 Down}{D}{F3 Up}, ahk_pid %pid%
             ControlSend, ahk_parent, {Blind}{F3 Down}{Esc}{F3 Up}, ahk_pid %pid%
         }
-        if (unpauseOnSwitch)
-            ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %pid%
-        
-        WinSet, AlwaysOnTop, On, ahk_pid %pid%
-        WinSet, AlwaysOnTop, Off, ahk_pid %pid%
         WinMinimize, Fullscreen Projector
         if (wideResets)
             WinMaximize, ahk_pid %pid%
@@ -258,8 +253,14 @@ SwitchInstance(idx) {
             Sleep, 100
             ControlSend, ahk_parent, {Text}time set 0, ahk_pid %pid%
         }
+
+        WinSet, AlwaysOnTop, On, ahk_pid %pid%
+        WinSet, AlwaysOnTop, Off, ahk_pid %pid%
         Sleep, 100
         Send, {LButton} ; Make sure the window is activated
+
+        if (unpauseOnSwitch)
+            ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %pid%
     }
 }
 
