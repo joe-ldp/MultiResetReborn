@@ -1,10 +1,10 @@
 ; v0.1.0
 
 RAlt::Suspend ; Pause all macros
-NumpadHome::Reload ; Reload if macro locks up
-NumpadIns::SetTitles()
+^LAlt::Reload ; Reload if macro locks up
+*I::SetTitles()
 
-*P::GoToActiveInstance()
+*Y::GoToActiveInstance()
 
 #IfWinActive, Minecraft
 {
