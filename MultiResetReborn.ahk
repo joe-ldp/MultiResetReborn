@@ -2,16 +2,16 @@
 ; By Specnr, reworked by Ravalle
 ; v0.1.0
 
+SetWorkingDir, %A_ScriptDir%
 #NoEnv
+#WinActivateForce
 #SingleInstance Force
 #Include Settings.ahk
-#Include %A_ScriptDir%\scripts\MultiFunctions.ahk
+#Include scripts/MultiFunctions.ahk
 
 SetKeyDelay, 0
 SetWinDelay, 1
 SetTitleMatchMode, 2
-
-; Don't configure these
 
 global currentInstance := 0
 
@@ -20,7 +20,6 @@ if (performanceMethod == "F") {
     sleep, %restartDelay%
 }
 GetAllPIDs(McDirectories, PIDs, instances)
-SetTitles()
 
 for i, mcdir in McDirectories {
     if (autoBop) {
@@ -51,6 +50,8 @@ for i, mcdir in McDirectories {
 }
 
 NextInstance()
+Sleep, 500
+SetTitles()
 
 if (!disableTTS)
     ComObjCreate("SAPI.SpVoice").Speak("Ready")
