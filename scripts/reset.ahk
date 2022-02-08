@@ -5,9 +5,8 @@ SetKeyDelay, 0
 global 1
 
 TryReset() {
-    ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %1%
     ControlSend, ahk_parent, {Blind}{Esc}{Tab}{Enter}, ahk_pid %1%
-    Sleep, 50
+    Sleep, 70
     ControlSend, ahk_parent, {Blind}{Esc}{Shift down}{Tab}{Shift up}{Enter}, ahk_pid %1%
 }
 
