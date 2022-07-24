@@ -1,6 +1,6 @@
 ; A Multi-Instance macro for Minecraft
 ; By Specnr, reworked by Ravalle
-; v0.1.1
+; v0.1.2
 
 SetWorkingDir, %A_ScriptDir%
 #NoEnv

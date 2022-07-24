@@ -1,4 +1,4 @@
-; v0.1.1
+; v0.1.2
 
 ; General Settings
 global fullscreen := False ; Enable to use fullscreen (as in F11)
