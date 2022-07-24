@@ -56,24 +56,8 @@ SetTitles()
 if (!disableTTS)
     ComObjCreate("SAPI.SpVoice").Speak("Ready")
 
-#Persistent
+if (performanceMethod == "F")
     SetTimer, FreezeInstances, 20
-return
-
-FreezeInstances:
-    Critical
-        if (performanceMethod == "F") {
-            Loop, %instances% {
-                rIdx := A_Index
-                idleCheck := McDirectories[rIdx] . "idle.tmp"
-                if (rIdx != currentInstance && resetIdx[rIdx] && FileExist(idleCheck) && (A_TickCount - resetScriptTime[i]) > scriptBootDelay) {
-                    SuspendInstance(PIDs[rIdx])
-                    resetScriptTime[i] := 0
-                    resetIdx[rIdx] := False
-                }
-            }
-        }
-return
 
 Reset() {
     ExitWorld()
@@ -108,3 +92,20 @@ BackgroundReset(idx) {
 }
 
 #Include Hotkeys.ahk
+
+return
+
+FreezeInstances:
+    Critical
+        if (performanceMethod == "F") {
+            Loop, %instances% {
+                rIdx := A_Index
+                idleCheck := McDirectories[rIdx] . "idle.tmp"
+                if (rIdx != currentInstance && resetIdx[rIdx] && FileExist(idleCheck) && (A_TickCount - resetScriptTime[i]) > scriptBootDelay) {
+                    SuspendInstance(PIDs[rIdx])
+                    resetScriptTime[i] := 0
+                    resetIdx[rIdx] := False
+                }
+            }
+        }
+return
