@@ -9,12 +9,6 @@ global countAttempts := True ; Counts attempts...
 global coopResets := False ; Use forceport and some method of forwarding port 25565
 global autoBop := False ; Automatically deletes old worlds when you open the macro
 
-; Set to 0 if you don't want the specific setting to be reset
-; Sensitivity and FOV may be off by 1, mess around with +-1 if you care about specifics
-global renderDistance := 18
-global FOV := 110 ; For quake pro put 110
-global mouseSensitivity := 0
-
 
 ; Multi Config
 global resetSounds := True ; :)
@@ -33,14 +27,10 @@ global obsDelay := 50 ; increase if not changing scenes in obs (only relevant if
 global useObsWebsocket := False ; Allows for >9 instances (additional setup required)
 
 ; Performance related settings
-global performanceMethod := "S" ; F = Instance Freezing, S = Settings Changing RD, N = Nothing
+global performanceMethod := "N" ; F = Instance Freezing, N = Nothing
 global affinity := True ; A funky performance addition, enable for performance boost
 global lowBitmaskMultiplier := 0.75 ; for affinity; the lower it is, the less your active instance lags, but the slower the background ones generate. Keep it as high as you can
 ; Instance freezing
 global resumeDelay := 50 ; increase if instance isnt resetting (or have to press reset twice)
 global beforeFreezeDelay := 500 ; increase if doesnt join world
 global scriptBootDelay := 6000 ; increase if instance freezes before world gen
-; Settings changes
-global settingsDelay := 10 ; increase if settings arent changing
-global beforePauseDelay := 500 ; basically the delay before dynamic FPS does its thing
-global lowRender := 5 ; For settings change performance method

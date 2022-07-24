@@ -161,12 +161,7 @@ ExitWorld()
             Sleep, 20
             WinMove, ahk_pid %pid%,,0,0,%A_ScreenWidth%,%newHeight%
         }
-        if (performanceMethod == "S") {
-            ResetSettings(pid, lowRender)
-        } else {
-            ResetSettings(pid, renderDistance)
-        }
-        ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %1%
+        ControlSend,, {Blind}{Esc}, ahk_pid %1%
         ResetInstance(idx)
         if (affinity) {
             for i, tmppid in PIDs {
@@ -227,13 +222,6 @@ SwitchInstance(idx) {
         }
         if (performanceMethod == "F")
             ResumeInstance(pid)
-        if (performanceMethod == "S") {
-            ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %pid%
-            Sleep, %settingsDelay%
-            ResetSettings(pid, renderDistance, True)
-            ControlSend, ahk_parent, {Blind}{F3 Down}{D}{F3 Up}, ahk_pid %pid%
-            ControlSend, ahk_parent, {Blind}{F3 Down}{Esc}{F3 Up}, ahk_pid %pid%
-        }
         WinMinimize, Fullscreen Projector
         if (wideResets)
             WinMaximize, ahk_pid %pid%
