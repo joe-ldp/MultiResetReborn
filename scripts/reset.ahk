@@ -5,19 +5,12 @@ SetKeyDelay, 0
 global 1
 
 TryReset() {
-    ControlSend, ahk_parent, {Blind}{Esc}{Tab}{Enter}, ahk_pid %1%
-    Sleep, 70
-    ControlSend, ahk_parent, {Blind}{Esc}{Shift down}{Tab}{Shift up}{Enter}, ahk_pid %1%
+    ControlSend, ahk_parent, {Blind}{F6}, ahk_pid %1%
 }
 
 resetSounds = %7%
 if (resetSounds)
     SoundPlay, A_ScriptDir\..\media\reset.wav
-
-TryReset()
-; remove the next 2 lines of code if you are using chunkmod or worldpreview
-Sleep, 1100
-TryReset()
 
 Sleep, 1000
 while (True) {
