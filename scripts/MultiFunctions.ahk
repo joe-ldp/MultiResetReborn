@@ -248,34 +248,7 @@ SwitchInstance(idx) {
         Send, {LButton} ; Make sure the window is activated
 
         if (unpauseOnSwitch)
-            ControlSend, ahk_parent, {Blind}{Esc}, ahk_pid %pid%
-    }
-}
-
-; Reset your settings to preset settings preferences
-ResetSettings(pid, rd, justRD := False) {
-    ; Find required presses to set FOV, sensitivity, and render distance
-    if (rd) {
-        RDPresses := rd-2
-        ; Reset then preset render distance to custom value with f3 shortcuts
-        ControlSend, ahk_parent, {Blind}{Shift down}{F3 down}{F 32}{F3 up}{Shift up}, ahk_pid %pid%
-        ControlSend, ahk_parent, {Blind}{F3 down}{F %RDPresses%}{F3 up}, ahk_pid %pid%
-    }
-    if (FOV && !justRD) {
-        FOVPresses := ceil((FOV-30)*1.763)
-        ; Tab to FOV
-        ControlSend, ahk_parent, {Blind}{Esc}{Tab 6}{enter}{Tab}, ahk_pid %pid%
-        ; Reset then preset FOV to custom value with arrow keys
-        ControlSend, ahk_parent, {Blind}{Left 151}, ahk_pid %pid%
-        ControlSend, ahk_parent, {Blind}{Right %FOVPresses%}{Esc}, ahk_pid %pid%
-    }
-    if (mouseSensitivity && !justRD) {
-        SensPresses := ceil(mouseSensitivity/1.408)
-        ; Tab to mouse sensitivity
-        ControlSend, ahk_parent, {Blind}{Esc}{Tab 6}{enter}{Tab 7}{enter}{tab}{enter}{tab}, ahk_pid %pid%
-        ; Reset then preset mouse sensitivity to custom value with arrow keys
-        ControlSend, ahk_parent, {Blind}{Left 146}, ahk_pid %pid%
-        ControlSend, ahk_parent, {Blind}{Right %SensPresses%}{Esc 3}, ahk_pid %pid%
+            ControlSend,, {Blind}{Esc}, ahk_pid %pid%
     }
 }
 
