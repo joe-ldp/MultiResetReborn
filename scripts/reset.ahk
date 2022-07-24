@@ -4,12 +4,11 @@
 SetKeyDelay, 0
 global 1
 
-
 resetSounds = %7%
 if (resetSounds)
     SoundPlay, A_ScriptDir\..\media\reset.wav
 
-ControlSend, ahk_parent, {Blind}{F6}, ahk_pid %1%
+ControlSend,, {Blind}{F6}, ahk_pid %1%
 
 Sleep, 1000
 while (True) {

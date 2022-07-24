@@ -230,9 +230,9 @@ SwitchInstance(idx) {
             Sleep, %fullScreenDelay%
         }
         if (!useObsWebsocket) {
-            ControlSend, ahk_parent, {Numpad%idx% down}, ahk_exe obs64.exe
+            Send, {Numpad%idx% down}
             Sleep, %obsDelay%
-            ControlSend, ahk_parent, {Numpad%idx% up}, ahk_exe obs64.exe
+            Send, {Numpad%idx% up}
         }
         if (coopResets) {
             Sleep, 100
