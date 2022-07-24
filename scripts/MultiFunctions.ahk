@@ -184,7 +184,7 @@ ResetInstance(idx, bg := False) {
         }
 
         logFile := McDirectories[idx] . "logs\latest.log"
-        If (FileExist(idleFile))
+        if (FileExist(idleFile))
             FileDelete, %idleFile%
         
         Run, %A_ScriptDir%\scripts\reset.ahk %pid% %logFile% %maxLoops% %bfd% %idleFile% %beforePauseDelay% %resetSounds%
@@ -226,20 +226,20 @@ SwitchInstance(idx) {
         if (wideResets)
             WinMaximize, ahk_pid %pid%
         if (fullscreen) {
-            ControlSend, ahk_parent, {Blind}{F11}, ahk_pid %pid%
+            ControlSend,, {Blind}{F11}, ahk_pid %pid%
             Sleep, %fullScreenDelay%
         }
         if (!useObsWebsocket) {
-            Send, {Numpad%idx% down}
+            ControlSend, ahk_parent, {Numpad%idx% down}, ahk_exe obs64.exe
             Sleep, %obsDelay%
-            Send, {Numpad%idx% up}
+            ControlSend, ahk_parent, {Numpad%idx% up}, ahk_exe obs64.exe
         }
         if (coopResets) {
-            ControlSend, ahk_parent, {Blind}{Esc}{Tab 7}{Enter}{Tab 4}{Enter}{Tab}{Enter}, ahk_pid %pid%
-            Sleep, 500
-            ControlSend, ahk_parent, /, ahk_pid %pid%
             Sleep, 100
-            ControlSend, ahk_parent, {Text}time set 0, ahk_pid %pid%
+            SetKeyDelay, 20
+            ControlSend,, {Blind}{Esc}, ahk_pid %pid%
+            ControlSend,, {Blind}{Tab 7}{Enter}{Tab 5}{Enter}, ahk_pid %pid%
+            SetKeyDelay, 0
         }
 
         WinSet, AlwaysOnTop, On, ahk_pid %pid%

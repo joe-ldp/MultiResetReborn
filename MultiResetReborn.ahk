@@ -17,7 +17,7 @@ global currentInstance := 0
 
 if (performanceMethod == "F") {
     UnsuspendAll()
-    sleep, %restartDelay%
+    Sleep, %restartDelay%
 }
 GetAllPIDs(McDirectories, PIDs, instances)
 

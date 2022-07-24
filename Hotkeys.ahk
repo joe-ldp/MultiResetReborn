@@ -1,7 +1,7 @@
 ; v0.1.1
 
 RAlt::Suspend ; Pause all macros
-^LAlt::Reload ; Reload if macro locks up
+^RAlt::Reload ; Reload if macro locks up
 *I::SetTitles()
 
 *Y::GoToActiveInstance()
